@@ -22,7 +22,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
   return (
     <div
       className={cn(
-        "fixed inset-x-0 top-[65px] z-40 w-full border-b border-border/40 bg-card/95 backdrop-blur-lg shadow-md md:hidden transition-all duration-300 ease-in-out transform origin-top",
+        "fixed inset-x-0 top-[65px] z-40 w-full max-h-[calc(100vh-65px)] overflow-y-auto border-b border-border/40 bg-card/95 backdrop-blur-lg shadow-md md:hidden transition-all duration-300 ease-in-out transform origin-top",
         open
           ? "translate-y-0 opacity-100 scale-y-100"
           : "-translate-y-5 opacity-0 scale-y-90 pointer-events-none"
@@ -35,26 +35,35 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
 
           if (hasChildren) {
             return (
-              <div key={link.label} className="border-b border-border/20 py-2">
-                <button
-                  onClick={() =>
-                    setActiveSubmenu(isSubmenuActive ? null : link.label)
-                  }
-                  className="flex w-full items-center justify-between text-[11px] font-sans font-light uppercase tracking-[0.2em] text-charcoal py-2"
-                >
-                  {link.label}
-                  <ChevronDown
-                    className={cn(
-                      "size-4 text-charcoal-muted transition-transform duration-200",
-                      isSubmenuActive && "rotate-180"
-                    )}
-                  />
-                </button>
+              <div key={link.label} className="border-b border-border/20 py-1">
+                <div className="flex w-full items-center justify-between">
+                  <Link
+                    href={link.href}
+                    onClick={onClose}
+                    className="flex-1 py-3 text-sm font-sans font-semibold uppercase tracking-widest text-charcoal hover:text-clay"
+                  >
+                    {link.label}
+                  </Link>
+                  <button
+                    onClick={() =>
+                      setActiveSubmenu(isSubmenuActive ? null : link.label)
+                    }
+                    className="p-3 focus:outline-none"
+                    aria-label={`Toggle ${link.label} menu`}
+                  >
+                    <ChevronDown
+                      className={cn(
+                        "size-4 text-charcoal-muted transition-transform duration-200",
+                        isSubmenuActive && "rotate-180"
+                      )}
+                    />
+                  </button>
+                </div>
 
                 <div
                   className={cn(
-                    "mt-1 space-y-1 pl-4 transition-all duration-200 overflow-hidden",
-                    isSubmenuActive ? "max-h-60 opacity-100 py-1" : "max-h-0 opacity-0"
+                    "space-y-1 pl-4 transition-all duration-200 overflow-hidden",
+                    isSubmenuActive ? "max-h-[500px] opacity-100 pb-2" : "max-h-0 opacity-0"
                   )}
                 >
                   {link.children?.map((child) => (
@@ -62,7 +71,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
                       key={child.label}
                       href={child.href}
                       onClick={onClose}
-                      className="block py-2 text-xs text-charcoal-muted hover:text-clay"
+                      className="block py-2.5 text-xs md:text-sm text-charcoal-muted hover:text-clay"
                     >
                       {child.label}
                     </Link>
@@ -77,7 +86,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
               key={link.label}
               href={link.href}
               onClick={onClose}
-              className="block border-b border-border/20 py-3 text-[11px] font-sans font-light uppercase tracking-[0.2em] text-charcoal hover:text-clay"
+              className="block border-b border-border/20 py-4 text-sm font-sans font-semibold uppercase tracking-widest text-charcoal hover:text-clay"
             >
               {link.label}
             </Link>

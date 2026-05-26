@@ -139,7 +139,7 @@
 
   /* Taglines */
   .tag-label {
-    @apply text-[10px] md:text-xs font-medium tracking-[0.25em] text-clay uppercase font-sans;
+    @apply text-xs md:text-sm font-medium tracking-[0.25em] text-clay uppercase font-sans;
   }
 
   /* Bento shadows - soft and blurred */
@@ -155,5 +155,86 @@
   /* Standard transitions */
   .transition-studio {
     @apply transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)];
+  }
+
+  /* ── Premium Form Styles ──────────────────────────────── */
+
+  /* Underline input — editorial style */
+  .form-input {
+    @apply w-full border-b border-border/60 bg-transparent px-0 py-3.5
+           text-base text-charcoal placeholder:text-charcoal-muted/35
+           font-sans font-light outline-none
+           transition-colors duration-300
+           focus:border-clay;
+    border-radius: 0;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .form-input:focus {
+    box-shadow: none;
+  }
+  .form-input-error {
+    @apply border-red-400/60;
+  }
+
+  /* Filled box input — warmer, card-embedded style */
+  .form-input-box {
+    @apply w-full rounded-2xl border border-border/50 bg-sand/30
+           px-4 py-3.5 text-base text-charcoal
+           placeholder:text-charcoal-muted/40
+           font-sans font-light outline-none
+           transition-all duration-300
+           focus:border-clay/60 focus:bg-card focus:ring-0;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .form-input-box-error {
+    @apply border-red-400/60 bg-red-50/30;
+  }
+
+  /* Label — minimal uppercase */
+  .form-label {
+    @apply block text-sm font-sans font-semibold
+           uppercase tracking-[0.2em] text-charcoal-muted mb-2;
+  }
+
+  /* Error message */
+  .form-error {
+    @apply mt-1.5 text-sm font-sans text-red-500 font-light;
+  }
+
+  /* Helper text */
+  .form-helper {
+    @apply text-sm font-sans text-charcoal-muted/60 font-light leading-relaxed;
+  }
+
+  /* Privacy note */
+  .form-privacy {
+    @apply text-xs md:text-sm text-center font-sans text-charcoal-muted/50 font-light;
+  }
+
+  /* Submit button — full editorial */
+  .form-submit {
+    @apply w-full rounded-full px-8 py-4 text-base font-sans font-medium
+           bg-deep-cta text-cta-text
+           transition-all duration-300
+           hover:bg-clay
+           disabled:opacity-50 disabled:cursor-not-allowed
+           flex items-center justify-center gap-2.5;
+  }
+
+  /* Success state container */
+  .form-success {
+    @apply flex flex-col items-center justify-center gap-5 py-14 text-center;
+  }
+  .form-success-icon {
+    @apply inline-flex size-16 items-center justify-center
+           rounded-full bg-clay/8 border border-clay/20;
+  }
+
+  /* Step pill (for multi-step) */
+  .form-step-pill {
+    @apply text-xs font-sans font-semibold uppercase tracking-[0.2em]
+           text-clay border border-clay/20 rounded-full px-3 py-1;
   }
 }

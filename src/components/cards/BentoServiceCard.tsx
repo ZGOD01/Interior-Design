@@ -51,11 +51,11 @@ export function BentoServiceCard({
       {/* Content under image */}
       <div className="space-y-3 px-2">
         <div className="flex items-center gap-3">
-          <span className="text-[10px] font-sans font-medium tracking-[0.2em] text-clay uppercase">
+          <span className="text-xs md:text-sm font-sans font-medium tracking-[0.2em] text-clay uppercase">
             {service.subtitle}
           </span>
           <span className="w-1.5 h-1.5 rounded-full bg-border" />
-          <span className="text-[10px] font-sans text-charcoal-muted font-light uppercase tracking-wider">
+          <span className="text-xs md:text-sm font-sans text-charcoal-muted font-light uppercase tracking-wider">
             Turnkey Studio
           </span>
         </div>
@@ -72,7 +72,7 @@ export function BentoServiceCard({
         </p>
 
         {/* Curated deliverables in light list */}
-        <div className="flex flex-wrap gap-x-4 gap-y-1.5 pt-2 text-[10px] text-charcoal-muted font-sans font-light border-t border-border/10">
+        <div className="flex flex-wrap gap-x-4 gap-y-1.5 pt-2 text-xs md:text-sm text-charcoal-muted font-sans font-light border-t border-border/10">
           {service.features.slice(0, 3).map((feat) => (
             <span key={feat} className="flex items-center gap-1.5">
               <span className="w-1 h-1 rounded-full bg-clay/50" />

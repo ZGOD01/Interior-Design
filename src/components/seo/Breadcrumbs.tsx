@@ -34,14 +34,14 @@ export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
               {item.href && !isLast ? (
                 <Link
                   href={item.href}
-                  className="text-[11px] font-sans text-charcoal-muted hover:text-clay transition-colors duration-200 font-light"
+                  className="text-sm font-sans text-charcoal-muted hover:text-clay transition-colors duration-200 font-light"
                 >
                   {item.label}
                 </Link>
               ) : (
                 <span
                   className={cn(
-                    "text-[11px] font-sans font-light",
+                    "text-sm font-sans font-light",
                     isLast ? "text-charcoal font-medium" : "text-charcoal-muted"
                   )}
                   aria-current={isLast ? "page" : undefined}

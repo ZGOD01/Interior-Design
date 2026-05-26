@@ -25,7 +25,7 @@ export function SectionHeader({
       )}
     >
       {tagline && (
-        <p className="text-[10px] md:text-xs font-sans font-medium tracking-[0.3em] text-clay uppercase">
+        <p className="text-xs md:text-sm font-sans font-medium tracking-[0.3em] text-clay uppercase">
           {tagline}
         </p>
       )}

@@ -26,13 +26,10 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile drawer on route transition safely to avoid synchronous cascading renders
+  // Close mobile drawer on route transition
   useEffect(() => {
-    if (mobileOpen) {
-      const timer = setTimeout(() => setMobileOpen(false), 0);
-      return () => clearTimeout(timer);
-    }
-  }, [pathname, mobileOpen]);
+    setMobileOpen(false);
+  }, [pathname]);
 
   return (
     <>
@@ -50,7 +47,7 @@ export default function Header() {
             <span className="font-heading text-2xl font-light tracking-[0.1em] text-charcoal transition-colors group-hover:text-clay">
               IICL
             </span>
-            <span className="text-[9px] font-sans font-bold tracking-[0.25em] text-clay uppercase">
+            <span className="text-xs font-sans font-bold tracking-[0.25em] text-clay uppercase">
               STUDIO
             </span>
           </Link>
@@ -69,15 +66,16 @@ export default function Header() {
                     key={link.label}
                     className="relative group py-2"
                   >
-                    <button
+                    <Link
+                      href={link.href}
                       className={cn(
-                        "flex items-center gap-1 text-[10px] md:text-[11px] font-sans font-light uppercase tracking-[0.2em] transition-colors hover:text-clay cursor-pointer",
+                        "flex items-center gap-1 text-xs md:text-sm font-sans font-semibold uppercase tracking-widest transition-colors hover:text-clay cursor-pointer",
                         isActive ? "text-clay" : "text-charcoal-muted"
                       )}
                     >
                       {link.label}
                       <ChevronDown className="size-3 transition-transform duration-300 group-hover:rotate-180" />
-                    </button>
+                    </Link>
 
                     {/* Dropdown Menu - Studio Style */}
                     <div
@@ -92,7 +90,7 @@ export default function Header() {
                             key={child.label}
                             href={child.href}
                             className={cn(
-                              "block rounded-xl px-4 py-2.5 text-xs transition-all hover:bg-sand/65 hover:text-clay",
+                              "block rounded-xl px-4 py-2.5 text-sm transition-all hover:bg-sand/65 hover:text-clay",
                               isChildActive
                                 ? "bg-sand text-clay font-medium"
                                 : "text-charcoal-muted"
@@ -112,7 +110,7 @@ export default function Header() {
                   key={link.label}
                   href={link.href}
                   className={cn(
-                    "text-[10px] md:text-[11px] font-sans font-light uppercase tracking-[0.2em] transition-colors hover:text-clay",
+                    "text-xs md:text-sm font-sans font-semibold uppercase tracking-widest transition-colors hover:text-clay",
                     isActive ? "text-clay" : "text-charcoal-muted"
                   )}
                 >
@@ -126,7 +124,7 @@ export default function Header() {
           <div className="hidden md:flex items-center gap-5">
             <a
               href={`tel:${contactDetails.phones[0].value.replace(/\s+/g, "")}`}
-              className="flex items-center gap-1.5 text-xs text-charcoal hover:text-clay transition-colors"
+              className="flex items-center gap-1.5 text-sm md:text-base text-charcoal hover:text-clay transition-colors"
             >
               <Phone className="size-3.5 text-clay" />
               <span className="hidden lg:inline">{contactDetails.phones[0].value}</span>

@@ -38,11 +38,11 @@ export function ServiceCard({ service, className, isFeatured = false }: ServiceC
       {/* Content */}
       <div className="space-y-3 px-2">
         <div className="flex items-center gap-3">
-          <span className="text-[10px] font-sans font-medium tracking-[0.2em] text-clay uppercase">
+          <span className="text-xs md:text-sm font-sans font-medium tracking-[0.2em] text-clay uppercase">
             {service.subtitle}
           </span>
           <span className="w-1.5 h-1.5 rounded-full bg-border" />
-          <span className="text-[10px] font-sans text-charcoal-muted font-light uppercase tracking-wider">
+          <span className="text-xs md:text-sm font-sans text-charcoal-muted font-light uppercase tracking-wider">
             Curated Scope
           </span>
         </div>
@@ -63,7 +63,7 @@ export function ServiceCard({ service, className, isFeatured = false }: ServiceC
           {service.features.map((feature) => (
             <span
               key={feature}
-              className="text-[9px] font-sans font-light text-charcoal-muted bg-sand/30 border border-border/25 px-2.5 py-0.5 rounded-full transition-all group-hover:border-clay/20"
+              className="text-xs font-sans font-light text-charcoal-muted bg-sand/30 border border-border/25 px-2.5 py-0.5 rounded-full transition-all group-hover:border-clay/20"
             >
               {feature}
             </span>

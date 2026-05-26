@@ -1,13 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { 
   MessageCircle, 
-  MapPin, 
-  ChevronRight,
-  ArrowUpRight
+  ChevronRight
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Header from "@/components/layout/Header";
@@ -18,6 +15,7 @@ import { Badge } from "@/components/ui/Badge";
 import { WhatsAppButton } from "@/components/common/WhatsAppButton";
 import { StickyMobileCTA } from "@/components/layout/StickyMobileCTA";
 import { buttonVariants } from "@/components/ui/button";
+import { ProjectCard } from "@/components/cards/ProjectCard";
 
 import { projectsData } from "@/data/projects";
 
@@ -88,55 +86,9 @@ export default function ProjectsIndexPage() {
 
             {/* Asymmetrical Grid of Large Project Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredProjects.map((project) => {
-                const coverImage = project.images[0] ?? "";
-                return (
-                  <div key={project.id} className="group/project flex flex-col gap-4">
-                    <Link href={`/projects/${project.slug}`} className="block">
-                      <div className="relative w-full aspect-[4/5] rounded-[1.75rem] border border-border/40 overflow-hidden bg-sand/15 transition-all duration-700 group-hover/project:border-clay/20">
-                        {coverImage && (
-                          <Image
-                            src={coverImage}
-                            alt={project.title}
-                            fill
-                            sizes="(max-width: 768px) 100vw, 30vw"
-                            className="object-cover transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/project:scale-102"
-                          />
-                        )}
-                        <div className="absolute top-6 right-6 size-9 flex items-center justify-center rounded-full border border-white/20 bg-charcoal/10 backdrop-blur-md opacity-0 scale-90 transition-all duration-500 group-hover/project:opacity-100 group-hover/project:scale-100">
-                          <ArrowUpRight className="size-3.5 text-white" />
-                        </div>
-                      </div>
-                    </Link>
-
-                    <div className="space-y-2.5 px-2">
-                      <div className="flex items-center gap-2">
-                        <span className="text-[9px] font-sans font-semibold tracking-wider text-clay uppercase">
-                          {project.categoryLabel}
-                        </span>
-                        <span className="w-1 h-1 rounded-full bg-border" />
-                        <span className="text-[9px] font-sans text-charcoal-muted font-light uppercase tracking-wider">
-                          {project.year}
-                        </span>
-                      </div>
-                      
-                      <Link href={`/projects/${project.slug}`} className="block group-hover/project:text-clay transition-colors duration-300">
-                        <h3 className="font-heading text-lg md:text-xl font-light text-charcoal tracking-tight leading-snug">
-                          {project.title}
-                        </h3>
-                      </Link>
-
-                      <div className="flex items-center justify-between text-[11px] text-charcoal-muted font-light pt-2 border-t border-border/20">
-                        <div className="flex items-center gap-1 text-charcoal-muted">
-                          <MapPin className="size-3 text-clay shrink-0" />
-                          <span>{project.location}</span>
-                        </div>
-                        <span className="text-[10px] font-sans">{project.area}</span>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+              {filteredProjects.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
             </div>
 
             {filteredProjects.length === 0 && (

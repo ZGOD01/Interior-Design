@@ -36,9 +36,9 @@ export function WhatsAppButton() {
             <X className="size-3.5" />
           </button>
           
-          <span className="tag-label text-[9px] block mb-1">Direct Chat</span>
+          <span className="tag-label block mb-1">Direct Chat</span>
           <p className="font-heading text-sm font-semibold text-charcoal mb-1">Talk with Site Lead</p>
-          <p className="text-[11px] text-charcoal-muted leading-relaxed font-light font-sans">
+          <p className="text-xs md:text-sm text-charcoal-muted leading-relaxed font-light font-sans">
             Have spatial questions? Chat directly with our Pune execution team now.
           </p>
           
@@ -46,7 +46,7 @@ export function WhatsAppButton() {
             href={`https://wa.me/${whatsappNumber}?text=${whatsappMsg}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 flex items-center justify-center gap-2 w-full bg-[#25D366] text-white text-[10px] font-sans font-semibold tracking-wider uppercase rounded-full py-2.5 transition-all duration-300 hover:bg-[#1da855] shadow-sm cursor-pointer"
+            className="mt-4 flex items-center justify-center gap-2 w-full bg-[#25D366] text-white text-xs font-sans font-semibold tracking-wider uppercase rounded-full py-2.5 transition-all duration-300 hover:bg-[#1da855] shadow-sm cursor-pointer"
           >
             <MessageCircle className="size-3.5" />
             Open WhatsApp

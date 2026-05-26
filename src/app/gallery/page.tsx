@@ -18,11 +18,32 @@ import { StickyMobileCTA } from "@/components/layout/StickyMobileCTA";
 import { buttonVariants } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Design Lookbook | Curated Materials & Execution Details | IIC Limited Pune",
+  title: "Design Lookbook | Curated Interior Finishes & Spaces | IIC Limited Pune",
   description:
-    "Browse our spatial lookbook. Explore detailed views of BWP cabinetry joinery, structural carbon columns, epoxy flooring, and luxury marble finishes in Pune.",
+    "Browse IIC Limited's curated lookbook of interior finishes from Pune projects. Explore modular cabinetry, epoxy flooring, acoustic panels, and marble surfaces.",
+  keywords: ["interior design gallery Pune", "interior lookbook", "home design inspiration Pune", "office interior photos"],
   alternates: {
     canonical: "https://www.iiclimited.com/gallery",
+  },
+  openGraph: {
+    title: "Design Lookbook | IIC Limited Interior Finishes Pune",
+    description: "Curated views of modular cabinetry, epoxy flooring, acoustic panels, and marble finishes from our Pune projects.",
+    url: "https://www.iiclimited.com/gallery",
+    type: "website",
+    images: [
+      {
+        url: "https://www.iiclimited.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "IIC Limited Design Lookbook — Interior Finishes Pune",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Design Lookbook | IIC Limited Pune",
+    description: "Curated interior finish gallery from residential and commercial projects in Pune.",
+    images: ["https://www.iiclimited.com/og-image.jpg"],
   },
 };
 
@@ -135,7 +156,7 @@ export default function GalleryPage() {
                   </div>
 
                   <div className="p-4.5 space-y-1.5 text-left bg-card">
-                    <span className="text-[9px] font-sans font-semibold tracking-wider text-clay uppercase">
+                    <span className="text-xs font-sans font-semibold tracking-wider text-clay uppercase">
                       {img.category}
                     </span>
                     <p className="text-xs text-charcoal-muted font-sans font-light leading-relaxed">

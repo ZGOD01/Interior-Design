@@ -48,13 +48,12 @@ export function ServiceCard({ service, className, isFeatured = false }: ServiceC
           </div>
         </div>
 
-        {/* Narrative titles */}
         <div className="space-y-3">
-          <span className="tag-label text-[10px] opacity-80">Specialty Focus</span>
-          <h3 className="font-heading text-xl md:text-2xl font-semibold text-charcoal group-hover:text-clay transition-all duration-300">
+          <span className="tag-label opacity-80">Specialty Focus</span>
+          <h3 className="font-heading text-2xl md:text-3xl font-semibold text-charcoal group-hover:text-clay transition-all duration-300">
             {service.title}
           </h3>
-          <p className="text-xs leading-relaxed text-charcoal-muted font-light line-clamp-3">
+          <p className="text-sm leading-relaxed text-charcoal-muted font-light line-clamp-3">
             {service.shortDescription}
           </p>
         </div>
@@ -66,7 +65,7 @@ export function ServiceCard({ service, className, isFeatured = false }: ServiceC
           {service.features.map((feature) => (
             <span
               key={feature}
-              className="text-[10px] font-sans font-medium text-charcoal-muted bg-sand/55 border border-border/30 px-3 py-1 rounded-full transition-all group-hover:border-clay/20 group-hover:bg-clay/[0.03]"
+              className="text-xs font-sans font-medium text-charcoal-muted bg-sand/55 border border-border/30 px-3 py-1 rounded-full transition-all group-hover:border-clay/20 group-hover:bg-clay/[0.03]"
             >
               {feature}
             </span>

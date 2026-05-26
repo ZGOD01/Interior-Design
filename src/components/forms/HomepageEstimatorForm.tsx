@@ -44,7 +44,7 @@ function formatINR(n: number) {
 const inputClass =
   "w-full border-b border-border/80 bg-transparent px-0 py-3.5 text-base text-charcoal placeholder:text-charcoal-muted/30 font-sans font-light outline-none transition-all duration-300 focus:border-clay rounded-none";
 const labelClass =
-  "block text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-clay mb-1";
+  "block text-xs md:text-sm font-sans font-semibold uppercase tracking-[0.2em] text-clay mb-1";
 const errorClass = "mt-1.5 text-xs font-sans text-red-500 font-light";
 
 export function HomepageEstimatorForm({ className }: { className?: string }) {
@@ -192,13 +192,13 @@ export function HomepageEstimatorForm({ className }: { className?: string }) {
           </div>
 
           <div className="p-6 md:p-8 bg-card border border-border/40 rounded-xl text-center space-y-2">
-            <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.25em] text-clay">
+            <span className="text-xs md:text-sm font-sans font-semibold uppercase tracking-[0.25em] text-clay">
               Estimated Investment Range
             </span>
             <div className="font-heading text-3xl md:text-5xl font-light text-charcoal tracking-tight">
               {formatINR(estimate.min)} <span className="text-charcoal-muted text-xl md:text-2xl font-sans font-light mx-2">to</span> {formatINR(estimate.max)}
             </div>
-            <p className="text-[11px] text-charcoal-muted font-sans font-light">
+            <p className="text-sm text-charcoal-muted font-sans font-light">
               *Includes structural core setups, premium finishes, design styling, and handover.
             </p>
           </div>

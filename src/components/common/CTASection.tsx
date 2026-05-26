@@ -46,7 +46,7 @@ export function CTASection({
       <Container>
         <div className="max-w-4xl mx-auto text-center space-y-8 py-10 md:py-16">
           {tagline && (
-            <p className="text-[10px] md:text-xs font-sans font-medium tracking-[0.3em] text-clay uppercase">
+            <p className="text-xs md:text-sm font-sans font-medium tracking-[0.3em] text-clay uppercase">
               {tagline}
             </p>
           )}

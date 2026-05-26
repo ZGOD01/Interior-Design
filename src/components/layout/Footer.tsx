@@ -19,7 +19,7 @@ export default function Footer() {
               </h2>
             </div>
             <div className="lg:col-span-4 col-span-1">
-              <p className="text-sm font-sans font-light leading-relaxed max-w-sm text-charcoal-muted">
+              <p className="text-base font-sans font-light leading-relaxed max-w-sm text-charcoal-muted">
                 Pune-based design studio and turnkey contractor specializing in premium residential, corporate offices, and structurally certified civil engineering.
               </p>
             </div>
@@ -33,11 +33,11 @@ export default function Footer() {
               <span className="font-heading text-xl font-light tracking-[0.15em] text-charcoal">
                 IICL
               </span>
-              <p className="text-[10px] font-sans font-medium tracking-[0.25em] text-clay uppercase">
+              <p className="text-xs font-sans font-medium tracking-[0.25em] text-clay uppercase">
                 STUDIO / CONTRACTING
               </p>
             </div>
-            <p className="text-xs leading-relaxed text-charcoal-muted font-sans font-light">
+            <p className="text-sm leading-relaxed text-charcoal-muted font-sans font-light">
               International Interior Contractor Private Limited (IIC Limited). Registered site execution and municipal clearance managers.
             </p>
             <div className="flex items-center gap-5">
@@ -45,7 +45,7 @@ export default function Footer() {
                 <a
                   key={key}
                   href={url}
-                  className="text-[10px] font-sans font-light uppercase tracking-widest text-charcoal-muted transition-colors hover:text-clay"
+                  className="text-xs font-sans font-light uppercase tracking-widest text-charcoal-muted transition-colors hover:text-clay"
                 >
                   {key}
                 </a>
@@ -55,10 +55,10 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="lg:col-span-2 col-span-1 space-y-5 lg:pl-4">
-            <h3 className="text-[10px] font-sans font-medium tracking-[0.25em] text-charcoal uppercase">
+            <h3 className="text-xs md:text-sm font-sans font-medium tracking-[0.25em] text-charcoal uppercase">
               STUDIO
             </h3>
-            <ul className="space-y-3 text-xs">
+            <ul className="space-y-3 text-sm">
               {mainNavigation.map((link) => (
                 <li key={link.label}>
                   <Link
@@ -84,10 +84,10 @@ export default function Footer() {
 
           {/* Specialties */}
           <div className="lg:col-span-3 col-span-1 space-y-5">
-            <h3 className="text-[10px] font-sans font-medium tracking-[0.25em] text-charcoal uppercase">
+            <h3 className="text-xs md:text-sm font-sans font-medium tracking-[0.25em] text-charcoal uppercase">
               SPECIALTIES
             </h3>
-            <ul className="space-y-3 text-xs">
+            <ul className="space-y-3 text-sm">
               <li>
                 <Link href="/services/residential-interiors" className="transition-colors hover:text-clay font-light text-charcoal-muted">
                   Residential Interiors
@@ -118,10 +118,10 @@ export default function Footer() {
 
           {/* Pune Contact */}
           <div className="lg:col-span-3 col-span-1 space-y-5">
-            <h3 className="text-[10px] font-sans font-medium tracking-[0.25em] text-charcoal uppercase">
+            <h3 className="text-xs md:text-sm font-sans font-medium tracking-[0.25em] text-charcoal uppercase">
               CONTACT
             </h3>
-            <ul className="space-y-3.5 text-xs text-charcoal-muted font-light">
+            <ul className="space-y-3.5 text-sm text-charcoal-muted font-light">
               <li className="flex items-start gap-2 text-charcoal-muted/90">
                 <MapPin className="size-3.5 shrink-0 text-clay mt-0.5" />
                 <span className="leading-relaxed">
@@ -137,7 +137,7 @@ export default function Footer() {
                       href={`tel:${phone.value.replace(/\s+/g, "")}`}
                       className="hover:text-clay transition-colors"
                     >
-                      {phone.value} <span className="text-[9px] opacity-70">({phone.label})</span>
+                      {phone.value} <span className="text-xs opacity-70">({phone.label})</span>
                     </a>
                   ))}
                 </div>
@@ -155,7 +155,7 @@ export default function Footer() {
                 <Clock className="size-3.5 shrink-0 text-clay mt-0.5" />
                 <div>
                   <p>{contactDetails.hours.days}</p>
-                  <p className="text-[10px] opacity-70">{contactDetails.hours.time}</p>
+                  <p className="text-xs opacity-70">{contactDetails.hours.time}</p>
                 </div>
               </li>
             </ul>
@@ -163,7 +163,7 @@ export default function Footer() {
         </div>
 
         {/* Footer bottom */}
-        <div className="mt-16 pt-8 border-t border-border/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-charcoal-muted font-sans font-light">
+        <div className="mt-16 pt-8 border-t border-border/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-charcoal-muted font-sans font-light">
           <p>
             &copy; {currentYear} International Interior Contractor Private Limited. All rights reserved.
           </p>

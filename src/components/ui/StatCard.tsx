@@ -19,11 +19,11 @@ export function StatCard({ value, label, description, className }: StatCardProps
       <span className="font-heading text-4xl md:text-5xl lg:text-6xl font-light text-clay tracking-tight">
         {value}
       </span>
-      <span className="text-[10px] md:text-xs font-semibold tracking-[0.2em] text-charcoal uppercase font-sans">
+      <span className="text-xs md:text-sm font-semibold tracking-[0.2em] text-charcoal uppercase font-sans">
         {label}
       </span>
       {description && (
-        <span className="text-xs text-charcoal-muted leading-relaxed font-sans font-light mt-1 max-w-[200px] mx-auto">
+        <span className="text-sm text-charcoal-muted leading-relaxed font-sans font-light mt-1 max-w-[200px] mx-auto">
           {description}
         </span>
       )}

@@ -31,7 +31,7 @@ export function TestimonialCard({ testimonial, className }: TestimonialCardProps
         </div>
 
         {/* Narrative Quote */}
-        <blockquote className="text-sm leading-relaxed text-charcoal font-sans font-light italic">
+        <blockquote className="text-base leading-relaxed text-charcoal font-sans font-light italic">
           &ldquo;{testimonial.comment}&rdquo;
         </blockquote>
       </div>
@@ -40,25 +40,25 @@ export function TestimonialCard({ testimonial, className }: TestimonialCardProps
       <div className="border-t border-border/30 pt-6 mt-8 flex items-start gap-4">
         {/* Avatar with raw tone colors */}
         <div className="size-11 shrink-0 rounded-full bg-sand border border-border/30 flex items-center justify-center">
-          <span className="font-heading text-sm font-semibold text-clay">
+          <span className="font-heading text-base font-semibold text-clay">
             {testimonial.author.charAt(0)}
           </span>
         </div>
 
         <div className="space-y-1">
-          <p className="font-heading text-sm font-semibold text-charcoal tracking-tight">
+          <p className="font-heading text-base font-semibold text-charcoal tracking-tight">
             {testimonial.author}
           </p>
-          <p className="text-xs text-charcoal-muted font-light leading-none">
+          <p className="text-sm text-charcoal-muted font-light leading-tight">
             {testimonial.designation}
             {testimonial.company && `, ${testimonial.company}`}
           </p>
-          <span className="inline-block mt-1 text-[9px] font-semibold tracking-widest text-clay uppercase font-sans">
+          <span className="inline-block mt-1 text-xs md:text-sm font-semibold tracking-widest text-clay uppercase font-sans">
             {testimonial.projectType}
           </span>
         </div>
 
-        <div className="ml-auto text-[10px] text-charcoal-muted/60 shrink-0 font-sans font-light">
+        <div className="ml-auto text-xs md:text-sm text-charcoal-muted/60 shrink-0 font-sans font-light">
           {testimonial.date}
         </div>
       </div>

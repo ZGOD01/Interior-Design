@@ -34,7 +34,7 @@ export function ProcessSection({
     <div className={cn("space-y-16 md:space-y-24", className)}>
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto space-y-4">
-        <p className="text-[10px] md:text-xs font-sans font-medium tracking-[0.3em] text-clay uppercase">
+        <p className="text-xs md:text-sm font-sans font-medium tracking-[0.3em] text-clay uppercase">
           {tagline}
         </p>
         <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-extralight text-charcoal tracking-tight leading-[1.15]">

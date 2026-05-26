@@ -2,11 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { 
-  ArrowRight, 
-  MessageCircle, 
-  ChevronRight
-} from "lucide-react";
+import { ArrowRight, MessageCircle, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -16,13 +12,42 @@ import { Badge } from "@/components/ui/Badge";
 import { WhatsAppButton } from "@/components/common/WhatsAppButton";
 import { StickyMobileCTA } from "@/components/layout/StickyMobileCTA";
 import { buttonVariants } from "@/components/ui/button";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Our Specialties | Turnkey Design & Civil Contracting Pune | IIC Limited",
+  title: "Our Specialties | Interior Design & Turnkey Contracting Pune | IIC Limited",
   description:
-    "Explore IIC Limited services. We coordinate residential interiors, commercial offices, industrial plants, civil foundations, and end-to-end turnkey projects.",
+    "IIC Limited delivers residential interiors, commercial office fitouts, industrial workspaces, civil engineering, and end-to-end turnkey projects in Pune with locked BOQ pricing.",
+  keywords: [
+    "interior design services Pune",
+    "turnkey contractor Pune",
+    "office fitout Pune",
+    "residential interior Pune",
+    "industrial interior Pune",
+  ],
   alternates: {
     canonical: "https://www.iiclimited.com/services",
+  },
+  openGraph: {
+    title: "Our Specialties | Interior Design & Contracting Services Pune | IIC Limited",
+    description:
+      "Residential, commercial, industrial interiors and turnkey civil contracting in Pune by IIC Limited.",
+    url: "https://www.iiclimited.com/services",
+    type: "website",
+    images: [
+      {
+        url: "https://www.iiclimited.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "IIC Limited Services — Interior Design Pune",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Interior Design Services Pune | IIC Limited",
+    description: "Residential, commercial, industrial, and turnkey interior contracting in Pune.",
+    images: ["https://www.iiclimited.com/og-image.jpg"],
   },
 };
 
@@ -64,6 +89,12 @@ export default function ServicesIndexPage() {
 
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home",     url: "https://www.iiclimited.com" },
+          { name: "Services", url: "https://www.iiclimited.com/services" },
+        ]}
+      />
       <Header />
 
       <main className="flex-1 overflow-x-hidden pt-28 bg-background pb-28 md:pb-0">
@@ -108,7 +139,7 @@ export default function ServicesIndexPage() {
                 </div>
 
                 <div className="relative z-10 space-y-2">
-                  <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-clay">
+                  <span className="text-xs md:text-sm font-sans font-semibold uppercase tracking-[0.2em] text-clay">
                     COMPLETE SINGLE ACCOUNTABILITY
                   </span>
                   <h3 className="font-heading text-2xl md:text-3xl font-light text-charcoal">
@@ -120,14 +151,14 @@ export default function ServicesIndexPage() {
                 </div>
 
                 <div className="relative z-10 pt-6 flex justify-between items-end border-t border-border/30">
-                  <div className="flex flex-wrap gap-4 text-[10px] text-charcoal-muted/80 font-sans font-light">
+                  <div className="flex flex-wrap gap-4 text-xs md:text-sm text-charcoal-muted/80 font-sans font-light">
                     <span>✓ Single Contact</span>
                     <span>✓ Guaranteed Deadlines</span>
                     <span>✓ Locked-In BOQ</span>
                   </div>
                   <Link 
                     href="/services/turnkey-projects"
-                    className="inline-flex items-center gap-1.5 text-[10px] font-sans font-medium uppercase tracking-[0.2em] text-clay hover:text-charcoal transition-colors group-hover:translate-x-1 duration-300"
+                    className="inline-flex items-center gap-1.5 text-xs md:text-sm font-sans font-medium uppercase tracking-[0.2em] text-clay hover:text-charcoal transition-colors group-hover:translate-x-1 duration-300"
                   >
                     Explore Service <ArrowRight className="size-3" />
                   </Link>
@@ -147,7 +178,7 @@ export default function ServicesIndexPage() {
                 </div>
 
                 <div className="relative z-10 space-y-2">
-                  <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-clay">
+                  <span className="text-xs md:text-sm font-sans font-semibold uppercase tracking-[0.2em] text-clay">
                     MODERN LIVING SPACES
                   </span>
                   <h3 className="font-heading text-2xl font-light text-charcoal">
@@ -159,10 +190,10 @@ export default function ServicesIndexPage() {
                 </div>
 
                 <div className="relative z-10 pt-6 flex justify-between items-end border-t border-border/30">
-                  <span className="text-[10px] font-sans text-charcoal-muted/70 font-light">Custom Homes</span>
+                  <span className="text-xs md:text-sm font-sans text-charcoal-muted/70 font-light">Custom Homes</span>
                   <Link 
                     href="/services/residential-interiors"
-                    className="inline-flex items-center gap-1.5 text-[10px] font-sans font-medium uppercase tracking-[0.2em] text-clay hover:text-charcoal transition-colors group-hover:translate-x-1 duration-300"
+                    className="inline-flex items-center gap-1.5 text-xs md:text-sm font-sans font-medium uppercase tracking-[0.2em] text-clay hover:text-charcoal transition-colors group-hover:translate-x-1 duration-300"
                   >
                     Explore <ArrowRight className="size-3" />
                   </Link>
@@ -182,7 +213,7 @@ export default function ServicesIndexPage() {
                 </div>
 
                 <div className="relative z-10 space-y-2">
-                  <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-clay">
+                  <span className="text-xs md:text-sm font-sans font-semibold uppercase tracking-[0.2em] text-clay">
                     COLLABORATIVE WORKSPACES
                   </span>
                   <h3 className="font-heading text-2xl font-light text-charcoal">
@@ -194,10 +225,10 @@ export default function ServicesIndexPage() {
                 </div>
 
                 <div className="relative z-10 pt-6 flex justify-between items-end border-t border-border/30">
-                  <span className="text-[10px] font-sans text-charcoal-muted/70 font-light">Office Fitouts</span>
+                  <span className="text-xs md:text-sm font-sans text-charcoal-muted/70 font-light">Office Fitouts</span>
                   <Link 
                     href="/services/commercial-interiors"
-                    className="inline-flex items-center gap-1.5 text-[10px] font-sans font-medium uppercase tracking-[0.2em] text-clay hover:text-charcoal transition-colors group-hover:translate-x-1 duration-300"
+                    className="inline-flex items-center gap-1.5 text-xs md:text-sm font-sans font-medium uppercase tracking-[0.2em] text-clay hover:text-charcoal transition-colors group-hover:translate-x-1 duration-300"
                   >
                     Explore <ArrowRight className="size-3" />
                   </Link>
@@ -217,7 +248,7 @@ export default function ServicesIndexPage() {
                 </div>
 
                 <div className="relative z-10 space-y-2">
-                  <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-clay">
+                  <span className="text-xs md:text-sm font-sans font-semibold uppercase tracking-[0.2em] text-clay">
                     HIGH-COMPLIANCE PLANTS
                   </span>
                   <h3 className="font-heading text-2xl font-light text-charcoal">
@@ -229,10 +260,10 @@ export default function ServicesIndexPage() {
                 </div>
 
                 <div className="relative z-10 pt-6 flex justify-between items-end border-t border-border/30">
-                  <span className="text-[10px] font-sans text-charcoal-muted/70 font-light">MIDC Industrial</span>
+                  <span className="text-xs md:text-sm font-sans text-charcoal-muted/70 font-light">MIDC Industrial</span>
                   <Link 
                     href="/services/industrial-interiors"
-                    className="inline-flex items-center gap-1.5 text-[10px] font-sans font-medium uppercase tracking-[0.2em] text-clay hover:text-charcoal transition-colors group-hover:translate-x-1 duration-300"
+                    className="inline-flex items-center gap-1.5 text-xs md:text-sm font-sans font-medium uppercase tracking-[0.2em] text-clay hover:text-charcoal transition-colors group-hover:translate-x-1 duration-300"
                   >
                     Explore <ArrowRight className="size-3" />
                   </Link>
@@ -252,7 +283,7 @@ export default function ServicesIndexPage() {
                 </div>
 
                 <div className="relative z-10 space-y-2">
-                  <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.25em] text-clay">
+                  <span className="text-xs md:text-sm font-sans font-semibold uppercase tracking-[0.25em] text-clay">
                     STRUCTURAL INTEGRITY
                   </span>
                   <h3 className="font-heading text-2xl font-light text-charcoal">
@@ -264,10 +295,10 @@ export default function ServicesIndexPage() {
                 </div>
 
                 <div className="relative z-10 pt-6 flex justify-between items-end border-t border-border/30">
-                  <span className="text-[10px] font-sans text-charcoal-muted/70 font-light">Stability Certified</span>
+                  <span className="text-xs md:text-sm font-sans text-charcoal-muted/70 font-light">Stability Certified</span>
                   <Link 
                     href="/services/civil-engineering"
-                    className="inline-flex items-center gap-1.5 text-[10px] font-sans font-medium uppercase tracking-[0.2em] text-clay hover:text-charcoal transition-colors group-hover:translate-x-1 duration-300"
+                    className="inline-flex items-center gap-1.5 text-xs md:text-sm font-sans font-medium uppercase tracking-[0.2em] text-clay hover:text-charcoal transition-colors group-hover:translate-x-1 duration-300"
                   >
                     Explore <ArrowRight className="size-3" />
                   </Link>
@@ -306,21 +337,21 @@ export default function ServicesIndexPage() {
 
                   <div className="space-y-4">
                     <div className="space-y-1">
-                      <span className="text-[9px] font-sans font-semibold tracking-wider text-clay uppercase">WHO IT IS FOR</span>
+                      <span className="text-xs font-sans font-semibold tracking-wider text-clay uppercase">WHO IT IS FOR</span>
                       <p className="text-xs text-charcoal-muted font-sans font-light leading-relaxed">
                         {item.forWho}
                       </p>
                     </div>
 
                     <div className="space-y-1">
-                      <span className="text-[9px] font-sans font-semibold tracking-wider text-clay uppercase">KEY DELIVERABLES</span>
+                      <span className="text-xs font-sans font-semibold tracking-wider text-clay uppercase">KEY DELIVERABLES</span>
                       <p className="text-xs text-charcoal-muted font-sans font-light leading-relaxed">
                         {item.deliverables}
                       </p>
                     </div>
 
                     <div className="space-y-1">
-                      <span className="text-[9px] font-sans font-semibold tracking-wider text-clay uppercase">ENGINEERING COMPLIANCE</span>
+                      <span className="text-xs font-sans font-semibold tracking-wider text-clay uppercase">ENGINEERING COMPLIANCE</span>
                       <p className="text-xs text-charcoal-muted font-sans font-light leading-relaxed">
                         {item.compliance}
                       </p>

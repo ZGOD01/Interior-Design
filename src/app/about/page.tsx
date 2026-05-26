@@ -6,10 +6,7 @@ import {
   ArrowRight, 
   MessageCircle, 
   ShieldCheck, 
-  HardHat, 
-  CheckCircle2, 
-  Sparkles,
-  Users
+  CheckCircle2
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Header from "@/components/layout/Header";
@@ -20,13 +17,38 @@ import { Badge } from "@/components/ui/Badge";
 import { WhatsAppButton } from "@/components/common/WhatsAppButton";
 import { StickyMobileCTA } from "@/components/layout/StickyMobileCTA";
 import { buttonVariants } from "@/components/ui/button";
+import { TeamPreviewSection } from "@/components/trust/TeamPreviewSection";
+import { CertificationsSection } from "@/components/trust/CertificationsSection";
+import { SiteExecutionTrustSection } from "@/components/trust/SiteExecutionTrustSection";
 
 export const metadata: Metadata = {
-  title: "Our Story | Turnkey Interior Design & Contracting | IIC Limited Pune",
+  title: "Our Story | Design Studio & Turnkey Contractor | IIC Limited Pune",
   description:
-    "Learn about International Interior Contractor (IIC Limited). Discover how our design studio combines creative aesthetics with rigid civil engineering standards in Pune.",
+    "Learn how IIC Limited bridges creative interior design with civil engineering precision in Pune. A team of architects, structural engineers, and project leads under one roof.",
+  keywords: ["about IIC Limited", "interior design studio Pune", "turnkey contractor background", "Pune design firm"],
   alternates: {
     canonical: "https://www.iiclimited.com/about",
+  },
+  openGraph: {
+    title: "Our Story | IIC Limited — Interior Design Studio Pune",
+    description:
+      "Learn how IIC Limited bridges creative interior design with civil engineering precision in Pune.",
+    url: "https://www.iiclimited.com/about",
+    type: "website",
+    images: [
+      {
+        url: "https://www.iiclimited.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "IIC Limited Studio — About Our Design Team",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Our Story | IIC Limited Pune",
+    description: "Design studio and turnkey civil contractor in Pune. One team for creative design and structural execution.",
+    images: ["https://www.iiclimited.com/og-image.jpg"],
   },
 };
 
@@ -99,14 +121,14 @@ export default function AboutPage() {
                     <ShieldCheck className="size-5 text-clay shrink-0 mt-0.5" />
                     <div>
                       <h4 className="text-xs font-sans font-semibold uppercase tracking-wider text-charcoal">Licensed Civil Leads</h4>
-                      <p className="text-[10px] text-charcoal-muted font-light leading-relaxed">Safety-first coordination for internal structural modifications.</p>
+                      <p className="text-xs md:text-sm text-charcoal-muted font-light leading-relaxed">Safety-first coordination for internal structural modifications.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2.5">
                     <CheckCircle2 className="size-5 text-clay shrink-0 mt-0.5" />
                     <div>
                       <h4 className="text-xs font-sans font-semibold uppercase tracking-wider text-charcoal">Locked Pricing BOQ</h4>
-                      <p className="text-[10px] text-charcoal-muted font-light leading-relaxed">Locked line-item pricing agreements. No surprise costs.</p>
+                      <p className="text-xs md:text-sm text-charcoal-muted font-light leading-relaxed">Locked line-item pricing agreements. No surprise costs.</p>
                     </div>
                   </div>
                 </div>
@@ -116,150 +138,24 @@ export default function AboutPage() {
           </Container>
         </Section>
 
-        {/* ── 3. LEADERSHIP & TEAM PLACEHOLDERS ── */}
+        {/* ── 3. LEADERSHIP & TEAM PREVIEW ── */}
         <Section variant="ivory" className="border-b border-border/20 py-20 md:py-28">
-          <Container className="space-y-12">
-            <div className="text-center max-w-2xl mx-auto space-y-3">
-              <span className="tag-label">Our Leadership</span>
-              <h2 className="font-heading text-3xl md:text-4xl font-light text-charcoal tracking-tight">
-                Principal Partners
-              </h2>
-              <p className="text-xs md:text-sm text-charcoal-muted font-light leading-relaxed max-w-md mx-auto">
-                {/* TODO: Add professional photos of the founding team members. */}
-                Meet the minds coordinating design aesthetics and structural safety at IIC Limited.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              
-              {/* Partner 1 */}
-              <div className="group flex flex-col bg-card border border-border/40 rounded-[1.5rem] overflow-hidden p-1.5 transition-all duration-300 hover:border-clay/20">
-                <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-sand/40">
-                  {/* TODO: Upload partner portrait picture. Using placeholder for now. */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-charcoal-muted/50 space-y-2">
-                    <Users className="size-10 text-clay/30" />
-                    <span className="text-[10px] font-sans font-light uppercase tracking-wider">TODO: Portrait Upload</span>
-                  </div>
-                </div>
-                <div className="p-5 space-y-1">
-                  <span className="text-[9px] font-sans font-semibold tracking-wider text-clay uppercase">DESIGN LEAD</span>
-                  <h3 className="font-heading text-lg font-light text-charcoal leading-none">Ananya Deshmukh</h3>
-                  <p className="text-xs text-charcoal-muted font-sans font-light pt-1">B.Arch, Curating premium residential layouts and spatial colors.</p>
-                </div>
-              </div>
-
-              {/* Partner 2 */}
-              <div className="group flex flex-col bg-card border border-border/40 rounded-[1.5rem] overflow-hidden p-1.5 transition-all duration-300 hover:border-clay/20">
-                <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-sand/40">
-                  {/* TODO: Upload partner portrait picture. Using placeholder for now. */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-charcoal-muted/50 space-y-2">
-                    <HardHat className="size-10 text-clay/30" />
-                    <span className="text-[10px] font-sans font-light uppercase tracking-wider">TODO: Portrait Upload</span>
-                  </div>
-                </div>
-                <div className="p-5 space-y-1">
-                  <span className="text-[9px] font-sans font-semibold tracking-wider text-clay uppercase">CIVIL ENGINEERING LEAD</span>
-                  <h3 className="font-heading text-lg font-light text-charcoal leading-none">Rajesh Kulkarni</h3>
-                  <p className="text-xs text-charcoal-muted font-sans font-light pt-1">M.Tech (Structures), 15+ years supervising structural concrete and MIDC approvals.</p>
-                </div>
-              </div>
-
-              {/* Partner 3 */}
-              <div className="group flex flex-col bg-card border border-border/40 rounded-[1.5rem] overflow-hidden p-1.5 transition-all duration-300 hover:border-clay/20">
-                <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-sand/40">
-                  {/* TODO: Upload partner portrait picture. Using placeholder for now. */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-charcoal-muted/50 space-y-2">
-                    <Sparkles className="size-10 text-clay/30" />
-                    <span className="text-[10px] font-sans font-light uppercase tracking-wider">TODO: Portrait Upload</span>
-                  </div>
-                </div>
-                <div className="p-5 space-y-1">
-                  <span className="text-[9px] font-sans font-semibold tracking-wider text-clay uppercase">OPERATIONS LEAD</span>
-                  <h3 className="font-heading text-lg font-light text-charcoal leading-none">Vikram Mehta</h3>
-                  <p className="text-xs text-charcoal-muted font-sans font-light pt-1">MBA (Operations), Oversees global material supply chain and locked BOQ margins.</p>
-                </div>
-              </div>
-
-            </div>
+          <Container>
+            <TeamPreviewSection />
           </Container>
         </Section>
 
-        {/* ── 4. TRUST & CERTIFICATIONS GRID ── */}
-        <Section variant="sand" className="border-b border-border/30 py-20 md:py-24 bg-sand/20">
-          <Container className="space-y-12">
-            <div className="text-center max-w-2xl mx-auto space-y-3">
-              <span className="tag-label">Execution Standards</span>
-              <h2 className="font-heading text-3xl font-light text-charcoal tracking-tight">
-                Our Certifications & Safety Badges
-              </h2>
-              <p className="text-xs text-charcoal-muted font-light leading-relaxed max-w-md mx-auto">
-                We operate under verified local civil clearances and strict structural certifications.
-              </p>
-            </div>
+        {/* ── 4. SITE EXECUTION GUARANTEES ── */}
+        <Section variant="sand" className="border-b border-border/30 py-20 md:py-28 bg-sand/20">
+          <Container>
+            <SiteExecutionTrustSection />
+          </Container>
+        </Section>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              
-              {/* Cert 1 */}
-              <div className="p-6 rounded-[1.25rem] border border-border/50 bg-card space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-[9px] font-sans font-semibold tracking-wider text-clay uppercase">STRUCTURAL SAFETY</span>
-                  <span className="text-[9px] text-charcoal-muted font-mono">TODO: FILE</span>
-                </div>
-                <h3 className="font-heading text-base font-light text-charcoal leading-snug">
-                  Licensed Engineers Stamp
-                </h3>
-                <p className="text-[11px] text-charcoal-muted font-sans font-light leading-relaxed">
-                  {/* TODO: Add PDF attachment or scanned copy of structural stability clearance. */}
-                  All columns, structural beams, and slab modifications are stamped by certified leads.
-                </p>
-              </div>
-
-              {/* Cert 2 */}
-              <div className="p-6 rounded-[1.25rem] border border-border/50 bg-card space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-[9px] font-sans font-semibold tracking-wider text-clay uppercase">CORPORATE REGISTER</span>
-                  <span className="text-[9px] text-charcoal-muted font-mono">TODO: SEAL</span>
-                </div>
-                <h3 className="font-heading text-base font-light text-charcoal leading-snug">
-                  IIC Limited Registration
-                </h3>
-                <p className="text-[11px] text-charcoal-muted font-sans font-light leading-relaxed">
-                  {/* TODO: Add company registration numbers and legal certificate copies. */}
-                  Registered entity for industrial clearances and commercial IT park contracts.
-                </p>
-              </div>
-
-              {/* Cert 3 */}
-              <div className="p-6 rounded-[1.25rem] border border-border/50 bg-card space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-[9px] font-sans font-semibold tracking-wider text-clay uppercase">CIVIL CLEARANCE</span>
-                  <span className="text-[9px] text-charcoal-muted font-mono">TODO: PERMIT</span>
-                </div>
-                <h3 className="font-heading text-base font-light text-charcoal leading-snug">
-                  PMC/PCMC Permits
-                </h3>
-                <p className="text-[11px] text-charcoal-muted font-sans font-light leading-relaxed">
-                  {/* TODO: Upload template copies of local society NOC approvals and municipal clearances. */}
-                  Assisting clients with local clearances, zoning laws, and building modification NOCs.
-                </p>
-              </div>
-
-              {/* Cert 4 */}
-              <div className="p-6 rounded-[1.25rem] border border-border/50 bg-card space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-[9px] font-sans font-semibold tracking-wider text-clay uppercase">MATERIAL QUALITY</span>
-                  <span className="text-[9px] text-charcoal-muted font-mono">TODO: ISO</span>
-                </div>
-                <h3 className="font-heading text-base font-light text-charcoal leading-snug">
-                  IS 710 Plywood Checks
-                </h3>
-                <p className="text-[11px] text-charcoal-muted font-sans font-light leading-relaxed">
-                  {/* TODO: Upload material certificates showing boiling water tests and plywood grade audits. */}
-                  Exclusive usage of boiling water proof timber grades and certified non-corrosive metals.
-                </p>
-              </div>
-
-            </div>
+        {/* ── 5. STRUCTURAL CERTIFICATIONS & BADGES ── */}
+        <Section variant="ivory" className="border-b border-border/20 py-20 md:py-28">
+          <Container>
+            <CertificationsSection />
           </Container>
         </Section>
 

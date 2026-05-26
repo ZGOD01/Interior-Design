@@ -260,10 +260,36 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   const details = serviceDetailsData[normalizedKey];
   return {
-    title: `${details.title} | Turnkey Interior Contractor | IIC Limited Pune`,
+    title: `${details.title} | Interior Design Pune | IIC Limited`,
     description: details.seoDescription,
+    keywords: [
+      `${details.title.toLowerCase()} Pune`,
+      "turnkey contractor Pune",
+      "interior design Pune",
+      "IIC Limited",
+    ],
     alternates: {
       canonical: `https://www.iiclimited.com/services/${details.slug}`,
+    },
+    openGraph: {
+      title: `${details.title} | IIC Limited Pune`,
+      description: details.seoDescription,
+      url: `https://www.iiclimited.com/services/${details.slug}`,
+      type: "website",
+      images: [
+        {
+          url: details.imageUrl,
+          width: 1200,
+          height: 800,
+          alt: `${details.title} — IIC Limited Pune`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${details.title} | IIC Limited Pune`,
+      description: details.seoDescription,
+      images: [details.imageUrl],
     },
   };
 }
@@ -416,14 +442,14 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                     <ShieldCheck className="size-5 text-clay shrink-0 mt-0.5" />
                     <div>
                       <h4 className="text-xs font-sans font-semibold uppercase tracking-wider text-charcoal">Studio Quality</h4>
-                      <p className="text-[11px] text-charcoal-muted font-light leading-relaxed">Engineers monitor raw material compliance.</p>
+                      <p className="text-sm text-charcoal-muted font-light leading-relaxed">Engineers monitor raw material compliance.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle className="size-5 text-clay shrink-0 mt-0.5" />
                     <div>
                       <h4 className="text-xs font-sans font-semibold uppercase tracking-wider text-charcoal">Locked BOQ</h4>
-                      <p className="text-[11px] text-charcoal-muted font-light leading-relaxed">No unexpected price hikes mid-project.</p>
+                      <p className="text-sm text-charcoal-muted font-light leading-relaxed">No unexpected price hikes mid-project.</p>
                     </div>
                   </div>
                 </div>
@@ -559,7 +585,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 </div>
                 <Link
                   href="/projects"
-                  className="inline-flex items-center gap-1.5 text-[10px] font-sans font-semibold tracking-widest uppercase text-clay hover:text-charcoal transition-colors group shrink-0 pb-1"
+                  className="inline-flex items-center gap-1.5 text-xs md:text-sm font-sans font-semibold tracking-widest uppercase text-clay hover:text-charcoal transition-colors group shrink-0 pb-1"
                 >
                   View All Projects <ArrowRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
                 </Link>
@@ -583,11 +609,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
                 <div className="space-y-3.5 px-2 mt-6">
                   <div className="flex items-center gap-3">
-                    <span className="text-[10px] font-sans font-semibold tracking-[0.2em] text-clay uppercase">
+                    <span className="text-xs md:text-sm font-sans font-semibold tracking-[0.2em] text-clay uppercase">
                       {relatedProject.categoryLabel}
                     </span>
                     <span className="w-1.5 h-1.5 rounded-full bg-border" />
-                    <span className="text-[10px] font-sans text-charcoal-muted font-light uppercase tracking-wider">
+                    <span className="text-xs md:text-sm font-sans text-charcoal-muted font-light uppercase tracking-wider">
                       {relatedProject.year}
                     </span>
                   </div>
@@ -607,7 +633,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                       <MapPin className="size-4 text-clay" />
                       <span>{relatedProject.location}</span>
                     </div>
-                    <span className="text-[10px] font-sans">{relatedProject.area}</span>
+                    <span className="text-xs md:text-sm font-sans">{relatedProject.area}</span>
                   </div>
                 </div>
               </div>

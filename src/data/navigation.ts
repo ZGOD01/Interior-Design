@@ -21,8 +21,8 @@ export const mainNavigation: NavLink[] = [
     ],
   },
   {
-    label: "Portfolio",
-    href: "/portfolio",
+    label: "Projects",
+    href: "/projects",
   },
   {
     label: "About Us",

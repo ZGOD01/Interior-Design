@@ -17,10 +17,14 @@ import { Badge } from "@/components/ui/Badge";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { WhatsAppButton } from "@/components/common/WhatsAppButton";
 import { StickyMobileCTA } from "@/components/layout/StickyMobileCTA";
-import { LocalBusinessJsonLd, FaqJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { LocalBusinessJsonLd, FaqJsonLd, BreadcrumbJsonLd, ServiceJsonLd } from "@/components/seo/JsonLd";
 import { getLocalSeoData } from "@/data/localSeo";
 import { servicesData } from "@/data/services";
+import { blogData } from "@/data/blog";
 import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { QualityChecklistSection } from "@/components/trust/QualityChecklistSection";
+import { ClientLogosSection } from "@/components/trust/ClientLogosSection";
 
 interface LocalSEOPageProps {
   categoryKey: string;
@@ -38,6 +42,11 @@ export function LocalSEOPage({ categoryKey }: LocalSEOPageProps) {
     data.relevantServicesSlugs.includes(s.slug)
   );
 
+  // Find related blog articles by checking the relatedLocalPage field
+  const relatedArticles = blogData.filter(
+    (post) => post.relatedLocalPage === categoryKey
+  ).slice(0, 2);
+
   // FAQ formatting
   const formattedFaqs = data.faqItems.map((item, idx) => ({
     id: `faq-${idx}`,
@@ -54,6 +63,12 @@ export function LocalSEOPage({ categoryKey }: LocalSEOPageProps) {
     <>
       {/* Schema Injection */}
       <LocalBusinessJsonLd url={pageUrl} />
+      <ServiceJsonLd
+        name={data.seoTitle.split(" | ")[0]}
+        description={data.seoDescription}
+        url={pageUrl}
+        imageUrl={data.imageUrl}
+      />
       <FaqJsonLd items={schemaFaqs} />
       <BreadcrumbJsonLd
         items={[
@@ -160,14 +175,14 @@ export function LocalSEOPage({ categoryKey }: LocalSEOPageProps) {
                     <ShieldCheck className="size-5 text-clay shrink-0 mt-0.5" />
                     <div>
                       <h4 className="text-xs font-sans font-semibold uppercase tracking-wider text-charcoal">Structural Safety</h4>
-                      <p className="text-[11px] text-charcoal-muted font-light leading-relaxed">All core load distributions are verified by engineers.</p>
+                      <p className="text-sm text-charcoal-muted font-light leading-relaxed">All core load distributions are verified by engineers.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2.5">
                     <ShieldCheck className="size-5 text-clay shrink-0 mt-0.5" />
                     <div>
                       <h4 className="text-xs font-sans font-semibold uppercase tracking-wider text-charcoal">Locked Pricing BOQ</h4>
-                      <p className="text-[11px] text-charcoal-muted font-light leading-relaxed">No random subcontractor modifications mid-project.</p>
+                      <p className="text-sm text-charcoal-muted font-light leading-relaxed">No random subcontractor modifications mid-project.</p>
                     </div>
                   </div>
                 </div>
@@ -241,7 +256,7 @@ export function LocalSEOPage({ categoryKey }: LocalSEOPageProps) {
                   </div>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="inline-flex items-center gap-1.5 text-[10px] font-sans font-semibold uppercase tracking-wider text-clay hover:text-charcoal transition-colors group h-fit w-fit"
+                    className="inline-flex items-center gap-1.5 text-xs md:text-sm font-sans font-semibold uppercase tracking-wider text-clay hover:text-charcoal transition-colors group h-fit w-fit"
                   >
                     View Details <ArrowRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
                   </Link>
@@ -314,7 +329,67 @@ export function LocalSEOPage({ categoryKey }: LocalSEOPageProps) {
           </Container>
         </Section>
 
-        {/* ── 7. FINAL LOCAL CTA ── */}
+        {/* ── 7. RELATED BLOG ARTICLES (INTERNAL LINKS) ── */}
+        {relatedArticles.length > 0 && (
+          <Section variant="ivory" className="border-b border-border/20 py-16 md:py-20">
+            <Container className="space-y-8">
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                <div className="space-y-2">
+                  <span className="tag-label">Studio Journal</span>
+                  <h2 className="font-heading text-2xl md:text-3xl font-light text-charcoal tracking-tight">
+                    Related Reading
+                  </h2>
+                </div>
+                <Link
+                  href="/blog"
+                  className="inline-flex items-center gap-1.5 text-xs md:text-sm font-sans font-semibold tracking-widest uppercase text-clay hover:text-charcoal transition-colors group shrink-0 pb-1"
+                >
+                  All Articles <ArrowRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {relatedArticles.map((post) => (
+                  <Link
+                    key={post.id}
+                    href={`/blog/${post.slug}`}
+                    className="group flex flex-col bg-card border border-border/40 rounded-[1.5rem] overflow-hidden hover:border-clay/20 transition-all duration-300"
+                  >
+                    <div className="relative aspect-[16/9] overflow-hidden">
+                      <Image
+                        src={post.imageUrl}
+                        alt={post.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-102"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                    <div className="p-6 space-y-3">
+                      <span className="text-xs font-sans font-semibold uppercase tracking-widest text-clay">{post.category}</span>
+                      <h3 className="font-heading text-base md:text-lg font-light text-charcoal leading-snug tracking-tight group-hover:text-clay transition-colors duration-300">
+                        {post.title}
+                      </h3>
+                      <p className="text-xs text-charcoal-muted font-sans font-light leading-relaxed line-clamp-2">
+                        {post.excerpt}
+                      </p>
+                      <div className="flex items-center gap-1.5 text-xs md:text-sm font-sans font-semibold text-clay uppercase tracking-wider pt-1">
+                        Read Article <ArrowRight className="size-3 transition-transform duration-300 group-hover:translate-x-0.5" />
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </Container>
+          </Section>
+        )}
+
+        {/* ── 8. TRUST: QUALITY CHECKLIST ── */}
+        <QualityChecklistSection />
+
+        {/* ── 9. TRUST: CLIENT LOGOS ── */}
+        <ClientLogosSection />
+
+        {/* ── 10. FINAL LOCAL CTA ── */}
         <section className="relative py-20 md:py-28 bg-sand/35">
           <Container>
             <div className="relative rounded-[2rem] border border-border/50 overflow-hidden bg-card p-8 md:p-16 lg:p-20 text-center max-w-4xl mx-auto shadow-sm">

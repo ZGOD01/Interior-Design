@@ -20,13 +20,36 @@ import { WhatsAppButton } from "@/components/common/WhatsAppButton";
 import { StickyMobileCTA } from "@/components/layout/StickyMobileCTA";
 import { buttonVariants } from "@/components/ui/button";
 import { contactDetails } from "@/data/navigation";
+import { LocalBusinessJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { CertificationsSection } from "@/components/trust/CertificationsSection";
 
 export const metadata: Metadata = {
-  title: "Book Free Consultation | Site Audit Pune Limits | IIC Limited",
+  title: "Book Free Site Consultation in Pune | IIC Limited",
   description:
-    "Contact IIC Limited to arrange a 1-hour site measurement audit. Access direct phone numbers, WhatsApp links, and book custom spatial consultations in Pune.",
+    "Contact IIC Limited to arrange a free 1-hour site measurement audit in Pune. Speak with our engineers, get a locked BOQ estimate, and plan your interior project with clarity.",
+  keywords: ["contact interior designer Pune", "book interior consultation Pune", "IIC Limited contact", "site audit Pune"],
   alternates: {
     canonical: "https://www.iiclimited.com/contact",
+  },
+  openGraph: {
+    title: "Book Free Site Consultation | IIC Limited Pune",
+    description: "Arrange a free site audit with IIC Limited's engineers in Pune. Get a locked BOQ estimate and clear project timeline.",
+    url: "https://www.iiclimited.com/contact",
+    type: "website",
+    images: [
+      {
+        url: "https://www.iiclimited.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Book a Site Consultation — IIC Limited Pune",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Book Free Site Consultation | IIC Limited Pune",
+    description: "Arrange a free site audit in Pune. Locked BOQ estimates, engineer supervision, no obligations.",
+    images: ["https://www.iiclimited.com/og-image.jpg"],
   },
 };
 
@@ -35,6 +58,14 @@ export default function ContactPage() {
 
   return (
     <>
+      {/* Contact Page Schemas */}
+      <LocalBusinessJsonLd url="https://www.iiclimited.com/contact" />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home",    url: "https://www.iiclimited.com" },
+          { name: "Contact", url: "https://www.iiclimited.com/contact" },
+        ]}
+      />
       <Header />
 
       <main className="flex-1 overflow-x-hidden pt-28 bg-background pb-28 md:pb-0">
@@ -104,7 +135,7 @@ export default function ContactPage() {
                               href={`tel:${phone.value.replace(/\s+/g, "")}`}
                               className="hover:text-clay transition-colors"
                             >
-                              {phone.value} <span className="text-[10px] opacity-75">({phone.label})</span>
+                              {phone.value} <span className="text-xs md:text-sm opacity-75">({phone.label})</span>
                             </a>
                           ))}
                         </div>
@@ -135,7 +166,7 @@ export default function ContactPage() {
                       <div className="space-y-1">
                         <h4 className="text-xs font-semibold text-charcoal uppercase tracking-wider">Office Hours</h4>
                         <p className="text-xs text-charcoal-muted leading-none">{contactDetails.hours.days}</p>
-                        <p className="text-[10px] text-charcoal-muted/70 leading-none pt-0.5">{contactDetails.hours.time}</p>
+                        <p className="text-xs md:text-sm text-charcoal-muted/70 leading-none pt-0.5">{contactDetails.hours.time}</p>
                       </div>
                     </li>
                   </ul>
@@ -177,7 +208,14 @@ export default function ContactPage() {
           </Container>
         </Section>
 
-        {/* ── 3. MAP PLACEHOLDER SECTION ── */}
+        {/* ── 3. SAFETY & REGISTRATION VERIFICATION ── */}
+        <Section variant="sand" className="border-b border-border/20 py-20 bg-sand/20">
+          <Container>
+            <CertificationsSection />
+          </Container>
+        </Section>
+
+        {/* ── 4. MAP PLACEHOLDER SECTION ── */}
         <Section variant="sand" className="border-b border-border/30 py-16 md:py-24 bg-sand/20">
           <Container className="space-y-8">
             <div className="text-center max-w-2xl mx-auto space-y-3">

@@ -34,8 +34,8 @@ export function ContactCard({ className, showWhatsApp = true }: ContactCardProps
             <MapPin className="size-3.5 text-accent" />
           </div>
           <div className="space-y-0.5">
-            <p className="text-[10px] font-semibold tracking-widest text-accent uppercase">Address</p>
-            <p className="text-xs leading-relaxed text-muted-foreground">
+            <p className="text-xs md:text-sm font-semibold tracking-widest text-accent uppercase">Address</p>
+            <p className="text-sm leading-relaxed text-muted-foreground">
               {contactDetails.address.display}
             </p>
           </div>
@@ -46,15 +46,15 @@ export function ContactCard({ className, showWhatsApp = true }: ContactCardProps
             <Phone className="size-3.5 text-accent" />
           </div>
           <div className="space-y-1">
-            <p className="text-[10px] font-semibold tracking-widest text-accent uppercase">Phone</p>
+            <p className="text-xs md:text-sm font-semibold tracking-widest text-accent uppercase">Phone</p>
             {contactDetails.phones.map((phone) => (
               <a
                 key={phone.value}
                 href={`tel:${phone.value.replace(/\s+/g, "")}`}
-                className="block text-xs text-foreground hover:text-accent transition-fast"
+                className="block text-sm text-foreground hover:text-accent transition-fast"
               >
                 {phone.value}
-                <span className="ml-1.5 text-muted-foreground/60 text-[10px]">({phone.label})</span>
+                <span className="ml-1.5 text-muted-foreground/60 text-xs md:text-sm">({phone.label})</span>
               </a>
             ))}
           </div>
@@ -65,10 +65,10 @@ export function ContactCard({ className, showWhatsApp = true }: ContactCardProps
             <Mail className="size-3.5 text-accent" />
           </div>
           <div className="space-y-0.5">
-            <p className="text-[10px] font-semibold tracking-widest text-accent uppercase">Email</p>
+            <p className="text-xs md:text-sm font-semibold tracking-widest text-accent uppercase">Email</p>
             <a
               href={`mailto:${contactDetails.email}`}
-              className="text-xs text-foreground hover:text-accent transition-fast"
+              className="text-sm text-foreground hover:text-accent transition-fast"
             >
               {contactDetails.email}
             </a>
@@ -80,10 +80,10 @@ export function ContactCard({ className, showWhatsApp = true }: ContactCardProps
             <Clock className="size-3.5 text-accent" />
           </div>
           <div className="space-y-0.5">
-            <p className="text-[10px] font-semibold tracking-widest text-accent uppercase">Hours</p>
-            <p className="text-xs text-foreground">{contactDetails.hours.days}</p>
-            <p className="text-xs text-muted-foreground">{contactDetails.hours.time}</p>
-            <p className="text-xs text-accent/70 font-medium">Sunday: {contactDetails.hours.sunday}</p>
+            <p className="text-xs md:text-sm font-semibold tracking-widest text-accent uppercase">Hours</p>
+            <p className="text-sm text-foreground">{contactDetails.hours.days}</p>
+            <p className="text-sm text-muted-foreground">{contactDetails.hours.time}</p>
+            <p className="text-sm text-accent/70 font-medium">Sunday: {contactDetails.hours.sunday}</p>
           </div>
         </li>
       </ul>
@@ -94,7 +94,7 @@ export function ContactCard({ className, showWhatsApp = true }: ContactCardProps
           href={`https://wa.me/${whatsappNumber}?text=${whatsappMsg}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2.5 w-full border border-border/60 bg-secondary rounded-sm py-3 text-xs font-semibold tracking-widest uppercase text-foreground transition-fast hover:border-accent hover:text-accent group"
+          className="flex items-center justify-center gap-2.5 w-full border border-border/60 bg-secondary rounded-sm py-3 text-sm font-semibold tracking-widest uppercase text-foreground transition-fast hover:border-accent hover:text-accent group"
         >
           <MessageCircle className="size-4 text-accent group-hover:scale-110 transition-transform" />
           Chat on WhatsApp

@@ -25,7 +25,7 @@ export function TrustStrip({ className }: TrustStripProps) {
       {trustItems.map((item) => (
         <div
           key={item}
-          className="flex items-center gap-2 text-[11px] font-sans font-light text-charcoal-muted"
+          className="flex items-center gap-2 text-sm font-sans font-light text-charcoal-muted"
         >
           <ShieldCheck className="size-3.5 shrink-0 text-clay" />
           <span>{item}</span>

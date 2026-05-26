@@ -8,7 +8,6 @@ import {
   ArrowRight, 
   MessageCircle, 
   CheckCircle2, 
-  ArrowUpRight, 
   MapPin, 
   Building, 
   Layers, 
@@ -27,6 +26,11 @@ import { HomepageEstimatorForm } from "@/components/forms/HomepageEstimatorForm"
 import { WhatsAppButton } from "@/components/common/WhatsAppButton";
 import { StickyMobileCTA } from "@/components/layout/StickyMobileCTA";
 import { buttonVariants } from "@/components/ui/button";
+import { ProjectCard } from "@/components/cards/ProjectCard";
+import { BeforeAfterSection } from "@/components/trust/BeforeAfterSection";
+import { ClientLogosSection } from "@/components/trust/ClientLogosSection";
+import { ReviewIntegrationPlaceholder } from "@/components/trust/ReviewIntegrationPlaceholder";
+import { QualityChecklistSection } from "@/components/trust/QualityChecklistSection";
 
 import { projectsData } from "@/data/projects";
 import { faqsData } from "@/data/faqs";
@@ -85,13 +89,13 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, ease: customEase }}
                 >
-                  <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.25em] text-clay">
+                  <span className="text-xs md:text-sm font-sans font-semibold uppercase tracking-[0.25em] text-clay">
                     PUNE&apos;S PREMIER DESIGN-BUILD STUDIO
                   </span>
                 </motion.div>
 
                 <motion.h1 
-                  className="font-heading text-4xl md:text-5xl lg:text-[3.25rem] font-light tracking-tight text-charcoal leading-[1.1] max-w-lg"
+                  className="font-heading text-5xl md:text-6xl lg:text-7xl font-light tracking-tight text-charcoal leading-[1.05] max-w-lg"
                   initial={{ opacity: 0, y: 25 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.1, ease: customEase }}
@@ -100,7 +104,7 @@ export default function Home() {
                 </motion.h1>
 
                 <motion.p 
-                  className="text-sm md:text-base text-charcoal-muted leading-relaxed font-sans font-light max-w-md"
+                  className="text-base md:text-lg text-charcoal-muted leading-8 font-sans font-light max-w-md"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2, ease: customEase }}
@@ -157,7 +161,7 @@ export default function Home() {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                  <p className="text-xs text-charcoal-muted font-sans font-light flex flex-wrap gap-x-4 gap-y-1">
+                  <p className="text-sm text-charcoal-muted font-sans font-light flex flex-wrap gap-x-4 gap-y-1">
                     <span className="flex items-center gap-1.5">
                       <CheckCircle2 className="size-3.5 text-clay shrink-0" />
                       In-house civil engineers
@@ -191,14 +195,14 @@ export default function Home() {
                   <div className="absolute top-6 right-6 bg-card/90 backdrop-blur-md border border-border/50 rounded-2xl p-4.5 shadow-sm text-left max-w-[210px] hidden sm:block z-10 animate-fadeIn">
                     <div className="flex items-center gap-2 mb-1.5">
                       <span className="size-2 rounded-full bg-clay" />
-                      <p className="text-[10px] font-sans font-semibold tracking-wider text-clay uppercase">
+                      <p className="text-xs md:text-sm font-sans font-semibold tracking-wider text-clay uppercase">
                         STUDIO STANDARDS
                       </p>
                     </div>
-                    <p className="font-heading text-base font-light text-charcoal leading-tight">
+                    <p className="font-heading text-lg font-light text-charcoal leading-tight">
                       Turnkey Project Execution
                     </p>
-                    <p className="text-[9px] font-sans text-charcoal-muted font-light mt-1">
+                    <p className="text-xs text-charcoal-muted font-light mt-1">
                       Design concept to certified site handover, managed entirely by IICL.
                     </p>
                   </div>
@@ -237,8 +241,8 @@ export default function Home() {
                   <MapPin className="size-4.5 text-clay" />
                 </div>
                 <div>
-                  <h4 className="font-sans text-xs font-semibold text-charcoal uppercase tracking-wider">Pune-Based Team</h4>
-                  <p className="text-[11px] text-charcoal-muted font-sans font-light mt-0.5">Serving municipal limits & suburbs</p>
+                  <h4 className="font-sans text-sm font-semibold text-charcoal uppercase tracking-wider">Pune-Based Team</h4>
+                  <p className="text-xs text-charcoal-muted font-sans font-light mt-0.5">Serving municipal limits & suburbs</p>
                 </div>
               </div>
 
@@ -247,8 +251,8 @@ export default function Home() {
                   <Building className="size-4.5 text-clay" />
                 </div>
                 <div>
-                  <h4 className="font-sans text-xs font-semibold text-charcoal uppercase tracking-wider">Bespoke Expertise</h4>
-                  <p className="text-[11px] text-charcoal-muted font-sans font-light mt-0.5">Residential to industrial scale</p>
+                  <h4 className="font-sans text-sm font-semibold text-charcoal uppercase tracking-wider">Bespoke Expertise</h4>
+                  <p className="text-xs text-charcoal-muted font-sans font-light mt-0.5">Residential to industrial scale</p>
                 </div>
               </div>
 
@@ -257,8 +261,8 @@ export default function Home() {
                   <Layers className="size-4.5 text-clay" />
                 </div>
                 <div>
-                  <h4 className="font-sans text-xs font-semibold text-charcoal uppercase tracking-wider">Turnkey Execution</h4>
-                  <p className="text-[11px] text-charcoal-muted font-sans font-light mt-0.5">Full design-build single accountability</p>
+                  <h4 className="font-sans text-sm font-semibold text-charcoal uppercase tracking-wider">Turnkey Execution</h4>
+                  <p className="text-xs text-charcoal-muted font-sans font-light mt-0.5">Full design-build single accountability</p>
                 </div>
               </div>
 
@@ -267,8 +271,8 @@ export default function Home() {
                   <Sparkles className="size-4.5 text-clay" />
                 </div>
                 <div>
-                  <h4 className="font-sans text-xs font-semibold text-charcoal uppercase tracking-wider">Consultation-First</h4>
-                  <p className="text-[11px] text-charcoal-muted font-sans font-light mt-0.5">Detailed upfront planning & locked BOQ</p>
+                  <h4 className="font-sans text-sm font-semibold text-charcoal uppercase tracking-wider">Consultation-First</h4>
+                  <p className="text-xs text-charcoal-muted font-sans font-light mt-0.5">Detailed upfront planning & locked BOQ</p>
                 </div>
               </div>
 
@@ -284,10 +288,10 @@ export default function Home() {
               {...fUp}
             >
               <span className="tag-label">Specialist Capabilities</span>
-              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-light text-charcoal tracking-tight leading-[1.15]">
+              <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-light text-charcoal tracking-tight leading-[1.15]">
                 Curated Design, Engaged Execution.
               </h2>
-              <p className="text-xs md:text-sm text-charcoal-muted font-light leading-relaxed max-w-lg mx-auto">
+              <p className="text-base md:text-lg text-charcoal-muted font-light leading-relaxed max-w-lg mx-auto">
                 Discover our specialized divisions, each built with fine taste and certified structural stability to deliver seamless environments in Pune.
               </p>
             </motion.div>
@@ -317,26 +321,26 @@ export default function Home() {
                 </div>
 
                 <div className="relative z-10 space-y-2">
-                  <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-clay">
+                  <span className="text-xs font-sans font-semibold uppercase tracking-[0.2em] text-clay">
                     COMPLETE SINGLE ACCOUNTABILITY
                   </span>
-                  <h3 className="font-heading text-2xl md:text-3xl font-light text-charcoal">
+                  <h3 className="font-heading text-3xl md:text-4xl font-light text-charcoal">
                     Turnkey Projects
                   </h3>
-                  <p className="text-xs text-charcoal-muted font-sans font-light leading-relaxed max-w-md pt-1">
+                  <p className="text-base text-charcoal-muted font-sans font-light leading-relaxed max-w-md pt-1">
                     Let us assume full responsibility for your workspace or residential build. We handle concept architecture, material sourcing, structural clearances, and contracting in Pune, ensuring complete budget security and timeline adherence.
                   </p>
                 </div>
 
                 <div className="relative z-10 pt-6 flex justify-between items-end border-t border-border/30">
-                  <div className="flex flex-wrap gap-4 text-[10px] text-charcoal-muted/80 font-sans font-light">
+                  <div className="flex flex-wrap gap-4 text-xs md:text-sm text-charcoal-muted/80 font-sans font-light">
                     <span>✓ Single Contact</span>
                     <span>✓ Guaranteed Deadlines</span>
                     <span>✓ Locked-In BOQ</span>
                   </div>
                   <Link 
                     href="/services/turnkey-projects"
-                    className="inline-flex items-center gap-1.5 text-[10px] font-sans font-medium uppercase tracking-[0.2em] text-clay hover:text-charcoal transition-colors shrink-0 group-hover:translate-x-1 duration-300"
+                    className="inline-flex items-center gap-1.5 text-xs font-sans font-medium uppercase tracking-[0.2em] text-clay hover:text-charcoal transition-colors shrink-0 group-hover:translate-x-1 duration-300"
                   >
                     Explore Service <ArrowRight className="size-3" />
                   </Link>
@@ -359,7 +363,7 @@ export default function Home() {
                 </div>
 
                 <div className="relative z-10 space-y-2">
-                  <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-clay">
+                  <span className="text-xs md:text-sm font-sans font-semibold uppercase tracking-[0.2em] text-clay">
                     MODERN LIVING SPACES
                   </span>
                   <h3 className="font-heading text-2xl font-light text-charcoal">
@@ -371,10 +375,10 @@ export default function Home() {
                 </div>
 
                 <div className="relative z-10 pt-6 flex justify-between items-end border-t border-border/30">
-                  <span className="text-[10px] font-sans text-charcoal-muted/70 font-light">Custom Homes</span>
+                  <span className="text-xs md:text-sm font-sans text-charcoal-muted/70 font-light">Custom Homes</span>
                   <Link 
                     href="/services/residential-interiors"
-                    className="inline-flex items-center gap-1.5 text-[10px] font-sans font-medium uppercase tracking-[0.2em] text-clay hover:text-charcoal transition-colors group-hover:translate-x-1 duration-300"
+                    className="inline-flex items-center gap-1.5 text-xs md:text-sm font-sans font-medium uppercase tracking-[0.2em] text-clay hover:text-charcoal transition-colors group-hover:translate-x-1 duration-300"
                   >
                     Explore <ArrowRight className="size-3" />
                   </Link>
@@ -397,7 +401,7 @@ export default function Home() {
                 </div>
 
                 <div className="relative z-10 space-y-2">
-                  <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-clay">
+                  <span className="text-xs md:text-sm font-sans font-semibold uppercase tracking-[0.2em] text-clay">
                     COLLABORATIVE WORKSPACES
                   </span>
                   <h3 className="font-heading text-2xl font-light text-charcoal">
@@ -409,10 +413,10 @@ export default function Home() {
                 </div>
 
                 <div className="relative z-10 pt-6 flex justify-between items-end border-t border-border/30">
-                  <span className="text-[10px] font-sans text-charcoal-muted/70 font-light">Office Fitouts</span>
+                  <span className="text-xs md:text-sm font-sans text-charcoal-muted/70 font-light">Office Fitouts</span>
                   <Link 
                     href="/services/commercial-interiors"
-                    className="inline-flex items-center gap-1.5 text-[10px] font-sans font-medium uppercase tracking-[0.2em] text-clay hover:text-charcoal transition-colors group-hover:translate-x-1 duration-300"
+                    className="inline-flex items-center gap-1.5 text-xs md:text-sm font-sans font-medium uppercase tracking-[0.2em] text-clay hover:text-charcoal transition-colors group-hover:translate-x-1 duration-300"
                   >
                     Explore <ArrowRight className="size-3" />
                   </Link>
@@ -435,7 +439,7 @@ export default function Home() {
                 </div>
 
                 <div className="relative z-10 space-y-2">
-                  <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-clay">
+                  <span className="text-xs md:text-sm font-sans font-semibold uppercase tracking-[0.2em] text-clay">
                     HIGH-COMPLIANCE PLANTS
                   </span>
                   <h3 className="font-heading text-2xl font-light text-charcoal">
@@ -447,10 +451,10 @@ export default function Home() {
                 </div>
 
                 <div className="relative z-10 pt-6 flex justify-between items-end border-t border-border/30">
-                  <span className="text-[10px] font-sans text-charcoal-muted/70 font-light">MIDC Industrial</span>
+                  <span className="text-xs md:text-sm font-sans text-charcoal-muted/70 font-light">MIDC Industrial</span>
                   <Link 
                     href="/services/industrial-interiors"
-                    className="inline-flex items-center gap-1.5 text-[10px] font-sans font-medium uppercase tracking-[0.2em] text-clay hover:text-charcoal transition-colors group-hover:translate-x-1 duration-300"
+                    className="inline-flex items-center gap-1.5 text-xs md:text-sm font-sans font-medium uppercase tracking-[0.2em] text-clay hover:text-charcoal transition-colors group-hover:translate-x-1 duration-300"
                   >
                     Explore <ArrowRight className="size-3" />
                   </Link>
@@ -473,7 +477,7 @@ export default function Home() {
                 </div>
 
                 <div className="relative z-10 space-y-2">
-                  <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.25em] text-clay">
+                  <span className="text-xs md:text-sm font-sans font-semibold uppercase tracking-[0.25em] text-clay">
                     STRUCTURAL INTEGRITY
                   </span>
                   <h3 className="font-heading text-2xl font-light text-charcoal">
@@ -485,10 +489,10 @@ export default function Home() {
                 </div>
 
                 <div className="relative z-10 pt-6 flex justify-between items-end border-t border-border/30">
-                  <span className="text-[10px] font-sans text-charcoal-muted/70 font-light">Stability Certified</span>
+                  <span className="text-xs md:text-sm font-sans text-charcoal-muted/70 font-light">Stability Certified</span>
                   <Link 
                     href="/services/civil-engineering"
-                    className="inline-flex items-center gap-1.5 text-[10px] font-sans font-medium uppercase tracking-[0.2em] text-clay hover:text-charcoal transition-colors group-hover:translate-x-1 duration-300"
+                    className="inline-flex items-center gap-1.5 text-xs md:text-sm font-sans font-medium uppercase tracking-[0.2em] text-clay hover:text-charcoal transition-colors group-hover:translate-x-1 duration-300"
                   >
                     Explore <ArrowRight className="size-3" />
                   </Link>
@@ -610,7 +614,7 @@ export default function Home() {
               <motion.div {...fUp}>
                 <Link
                   href="/projects"
-                  className="inline-flex items-center gap-2 text-[10px] font-sans font-semibold tracking-[0.25em] uppercase text-clay hover:text-charcoal transition-colors group shrink-0 pb-1"
+                  className="inline-flex items-center gap-2 text-xs md:text-sm font-sans font-semibold tracking-[0.25em] uppercase text-clay hover:text-charcoal transition-colors group shrink-0 pb-1"
                 >
                   View All Projects 
                   <ArrowRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -626,56 +630,19 @@ export default function Home() {
               whileInView="whileInView"
               viewport={{ once: true }}
             >
-              {projectsData.slice(0, 3).map((project) => {
-                const coverImage = project.images[0] ?? "";
-                return (
-                  <motion.div key={project.id} variants={fUp} className="group/project flex flex-col gap-4">
-                    <Link href={`/projects/${project.slug}`} className="block">
-                      <div className="relative w-full aspect-[4/5] rounded-[1.75rem] border border-border/40 overflow-hidden bg-sand/15 transition-all duration-700 group-hover/project:border-clay/20">
-                        {coverImage && (
-                          <Image
-                            src={coverImage}
-                            alt={project.title}
-                            fill
-                            sizes="(max-width: 768px) 100vw, 30vw"
-                            className="object-cover transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/project:scale-102"
-                          />
-                        )}
-                        <div className="absolute top-6 right-6 size-9 flex items-center justify-center rounded-full border border-white/20 bg-charcoal/10 backdrop-blur-md opacity-0 scale-90 transition-all duration-500 group-hover/project:opacity-100 group-hover/project:scale-100">
-                          <ArrowUpRight className="size-3.5 text-white" />
-                        </div>
-                      </div>
-                    </Link>
-
-                    <div className="space-y-2.5 px-2">
-                      <div className="flex items-center gap-2">
-                        <span className="text-[9px] font-sans font-semibold tracking-wider text-clay uppercase">
-                          {project.categoryLabel}
-                        </span>
-                        <span className="w-1 h-1 rounded-full bg-border" />
-                        <span className="text-[9px] font-sans text-charcoal-muted font-light uppercase tracking-wider">
-                          {project.year}
-                        </span>
-                      </div>
-                      
-                      <Link href={`/projects/${project.slug}`} className="block group-hover/project:text-clay transition-colors duration-300">
-                        <h3 className="font-heading text-lg md:text-xl font-light text-charcoal tracking-tight leading-snug">
-                          {project.title}
-                        </h3>
-                      </Link>
-
-                      <div className="flex items-center justify-between text-[11px] text-charcoal-muted font-light pt-2 border-t border-border/20">
-                        <div className="flex items-center gap-1 text-charcoal-muted">
-                          <MapPin className="size-3 text-clay shrink-0" />
-                          <span>{project.location}</span>
-                        </div>
-                        <span className="text-[10px] font-sans">{project.area}</span>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
+              {projectsData.slice(0, 3).map((project) => (
+                <motion.div key={project.id} variants={fUp}>
+                  <ProjectCard project={project} />
+                </motion.div>
+              ))}
             </motion.div>
+          </Container>
+        </Section>
+
+        {/* ── Before & After Compare Showcase ── */}
+        <Section variant="ivory" className="border-b border-border/40 py-20 md:py-28">
+          <Container>
+            <BeforeAfterSection />
           </Container>
         </Section>
 
@@ -840,102 +807,17 @@ export default function Home() {
           </Container>
         </Section>
 
-        {/* ── 8. TRUST PREVIEW SECTION ── */}
+        {/* ── 8. TRUST & CREDIBILITY SYSTEM ── */}
         <Section variant="sand" className="border-b border-border/40 bg-sand/20 py-20 md:py-28">
-          <Container className="space-y-16">
-            <motion.div 
-              className="text-center max-w-2xl mx-auto space-y-4"
-              {...fUp}
-            >
-              <span className="tag-label">CREDIBILITY PREVIEW</span>
-              <h2 className="font-heading text-3xl md:text-4xl font-light text-charcoal tracking-tight">
-                Verified Backing & Track Record
-              </h2>
-              <p className="text-xs md:text-sm text-charcoal-muted font-light max-w-lg mx-auto">
-                No faked claims. Here is our structured background, structural safety credentials, and client feedback outline.
-              </p>
-            </motion.div>
+          <Container className="space-y-24">
+            {/* Reviews */}
+            <ReviewIntegrationPlaceholder />
+            
+            {/* Quality audits */}
+            <QualityChecklistSection />
 
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
-              variants={staggerContainer}
-              initial="initial"
-              whileInView="whileInView"
-              viewport={{ once: true }}
-            >
-              {/* Card 1: Verified Reviews */}
-              <motion.div 
-                variants={fUp}
-                className="p-6 rounded-[1.5rem] border border-border/50 bg-card space-y-4"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-sans font-semibold uppercase tracking-wider text-clay">REVIEWS</span>
-                  <span className="text-[10px] text-charcoal-muted font-mono">TODO: AUDIT</span>
-                </div>
-                <h3 className="font-heading text-lg font-light text-charcoal leading-snug">
-                  Verified Client Reviews
-                </h3>
-                <p className="text-xs text-charcoal-muted font-sans font-light leading-relaxed">
-                  {/* TODO: Integrate verified Google Business and local Pune property client feedback logs. */}
-                  Client reviews outlining site cleanup, BOQ adherence, and timeline performance notes.
-                </p>
-              </motion.div>
-
-              {/* Card 2: Client Logos */}
-              <motion.div 
-                variants={fUp}
-                className="p-6 rounded-[1.5rem] border border-border/50 bg-card space-y-4"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-sans font-semibold uppercase tracking-wider text-clay">PARTNERS</span>
-                  <span className="text-[10px] text-charcoal-muted font-mono">TODO: LOGOS</span>
-                </div>
-                <h3 className="font-heading text-lg font-light text-charcoal leading-snug">
-                  Corporate Client Logos
-                </h3>
-                <p className="text-xs text-charcoal-muted font-sans font-light leading-relaxed">
-                  {/* TODO: Import vector client signatures for Hinjawadi IT firms and Chakan MIDC heavy plants. */}
-                  Logos representing our corporate offices and industrial contractors who trust us.
-                </p>
-              </motion.div>
-
-              {/* Card 3: Certifications */}
-              <motion.div 
-                variants={fUp}
-                className="p-6 rounded-[1.5rem] border border-border/50 bg-card space-y-4"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-sans font-semibold uppercase tracking-wider text-clay">COMPLIANCE</span>
-                  <span className="text-[10px] text-charcoal-muted font-mono">TODO: CERTS</span>
-                </div>
-                <h3 className="font-heading text-lg font-light text-charcoal leading-snug">
-                  Site Certifications
-                </h3>
-                <p className="text-xs text-charcoal-muted font-sans font-light leading-relaxed">
-                  {/* TODO: Add scanned PDFs of structural clearance, ISO compliance, and PMC/PCMC approvals. */}
-                  Structural safety credentials, PMC clearance, and civil licensing records.
-                </p>
-              </motion.div>
-
-              {/* Card 4: Case Studies */}
-              <motion.div 
-                variants={fUp}
-                className="p-6 rounded-[1.5rem] border border-border/50 bg-card space-y-4"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-sans font-semibold uppercase tracking-wider text-clay">REPORTS</span>
-                  <span className="text-[10px] text-charcoal-muted font-mono">TODO: CASE</span>
-                </div>
-                <h3 className="font-heading text-lg font-light text-charcoal leading-snug">
-                  Bespoke Case Studies
-                </h3>
-                <p className="text-xs text-charcoal-muted font-sans font-light leading-relaxed">
-                  {/* TODO: Draft complete space layout walkthroughs, before/after measurements, and BOQ breakdown sheets. */}
-                  Before-and-after spatial blueprints, itemized cost sheets, and design iterations.
-                </p>
-              </motion.div>
-
-            </motion.div>
+            {/* Typography client logos */}
+            <ClientLogosSection />
           </Container>
         </Section>
 

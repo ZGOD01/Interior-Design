@@ -11,11 +11,39 @@ import { Badge } from "@/components/ui/Badge";
 import { blogData } from "@/data/blog";
 
 export const metadata: Metadata = {
-  title: "Studio Journal | Interior & Turnkey Construction Guides Pune | IIC Limited",
+  title: "Studio Journal | Interior Design Guides for Pune | IIC Limited",
   description:
-    "Explore our editorial journal for expert guides on commercial acoustics, apartment fitout costs, turnkey planning, and industrial office compliance in Pune.",
+    "Read expert guides on office interior design, home fitout costs, turnkey contracting, and industrial workspace planning in Pune. Written by IIC Limited's principal engineers.",
+  keywords: [
+    "interior design guide Pune",
+    "office fitout tips Pune",
+    "home interior cost Pune",
+    "turnkey contracting guide",
+    "industrial interior Pune",
+  ],
   alternates: {
     canonical: "https://www.iiclimited.com/blog",
+  },
+  openGraph: {
+    title: "Studio Journal | Interior Design Guides for Pune | IIC Limited",
+    description:
+      "Expert guides on office design, home interiors, and turnkey contracting in Pune — written by IIC Limited's engineers and designers.",
+    url: "https://www.iiclimited.com/blog",
+    type: "website",
+    images: [
+      {
+        url: "https://www.iiclimited.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "IIC Limited Studio Journal — Interior Design Guides Pune",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Studio Journal | IIC Limited",
+    description: "Expert guides on office design, home interiors, and turnkey contracting in Pune.",
+    images: ["https://www.iiclimited.com/og-image.jpg"],
   },
 };
 
@@ -72,7 +100,7 @@ export default function BlogIndexPage() {
                   <div className="p-6 md:p-8 flex-1 flex flex-col justify-between space-y-6 bg-card">
                     <div className="space-y-4">
                       {/* Meta information row */}
-                      <div className="flex items-center justify-between text-[10px] text-charcoal-muted font-sans font-light border-b border-border/20 pb-3">
+                      <div className="flex items-center justify-between text-xs md:text-sm text-charcoal-muted font-sans font-light border-b border-border/20 pb-3">
                         <span className="uppercase tracking-widest text-clay font-semibold">
                           {post.category}
                         </span>
@@ -96,10 +124,10 @@ export default function BlogIndexPage() {
                     {/* Author & Read More */}
                     <div className="flex items-center justify-between border-t border-border/20 pt-4 mt-auto">
                       <div className="flex items-center gap-2">
-                        <div className="size-6 rounded-full bg-sand border border-border/40 flex items-center justify-center text-[9px] font-sans text-clay font-bold">
+                        <div className="size-6 rounded-full bg-sand border border-border/40 flex items-center justify-center text-xs font-sans text-clay font-bold">
                           {post.author.split(" ").map(n => n[0]).join("")}
                         </div>
-                        <span className="text-[10px] font-sans text-charcoal-muted font-medium">
+                        <span className="text-xs md:text-sm font-sans text-charcoal-muted font-medium">
                           {post.author}
                         </span>
                       </div>

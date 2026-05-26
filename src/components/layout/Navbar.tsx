@@ -53,7 +53,7 @@ export default function Navbar() {
           <span className="font-heading text-2xl font-light tracking-[0.1em] text-charcoal transition-colors group-hover:text-clay">
             IICL
           </span>
-          <span className="text-[9px] font-sans font-bold tracking-[0.25em] text-clay uppercase">
+          <span className="text-xs font-sans font-bold tracking-[0.25em] text-clay uppercase">
             STUDIO
           </span>
         </Link>
@@ -76,7 +76,7 @@ export default function Navbar() {
                 >
                   <button
                     className={cn(
-                      "flex items-center gap-1 text-[11px] font-sans font-semibold uppercase tracking-widest transition-colors hover:text-clay cursor-pointer",
+                      "flex items-center gap-1 text-sm font-sans font-semibold uppercase tracking-widest transition-colors hover:text-clay cursor-pointer",
                       isActive ? "text-clay" : "text-charcoal-muted"
                     )}
                   >
@@ -117,7 +117,7 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 className={cn(
-                  "text-[11px] font-sans font-semibold uppercase tracking-widest transition-colors hover:text-clay",
+                  "text-sm font-sans font-semibold uppercase tracking-widest transition-colors hover:text-clay",
                   isActive ? "text-clay" : "text-charcoal-muted"
                 )}
               >
